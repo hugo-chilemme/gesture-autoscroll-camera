@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Gesture Scroll</string>
+    <string name="a11y_description">Permet le défilement mains-libres dans n\'importe quelle application, contrôlé par des gestes de la main détectés par la caméra. Conçu pour la navigation accessible.</string>
+    <string name="a11y_summary">Défilement mains-libres par geste caméra</string>
+</resources>
