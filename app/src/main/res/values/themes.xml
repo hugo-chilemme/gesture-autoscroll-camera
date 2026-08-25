@@ -1,0 +1,7 @@
+<resources>
+    <style name="Theme.GestureScroll" parent="Theme.Material3.DynamicColors.DayNight">
+        <item name="colorPrimary">#0B84FF</item>
+        <item name="android:statusBarColor">#0B0B0F</item>
+        <item name="android:windowBackground">#0B0B0F</item>
+    </style>
+</resources>

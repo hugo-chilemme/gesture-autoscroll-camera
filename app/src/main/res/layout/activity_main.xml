@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0B0B0F"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gesture Scroll"
+            android:textColor="#FFFFFF"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Défilement mains-libres par geste caméra. Fonctionne sur l'app active à l'écran."
+            android:textColor="#9AA0A6"
+            android:textSize="14sp"
+            android:layout_marginBottom="28dp" />
+
+        <TextView android:id="@+id/statusCamera"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:textColor="#E8EAED" android:textSize="16sp" android:text="✗ Caméra"
+            android:layout_marginBottom="8dp"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCamera"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Autoriser la caméra" android:layout_marginBottom="20dp"/>
+
+        <TextView android:id="@+id/statusOverlay"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:textColor="#E8EAED" android:textSize="16sp" android:text="✗ Overlay"
+            android:layout_marginBottom="8dp"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnOverlay"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Autoriser l'overlay" android:layout_marginBottom="20dp"/>
+
+        <TextView android:id="@+id/statusA11y"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:textColor="#E8EAED" android:textSize="16sp" android:text="✗ Accessibilité"
+            android:layout_marginBottom="8dp"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnA11y"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Activer le service d'accessibilité" android:layout_marginBottom="32dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnStart"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Démarrer" android:layout_marginBottom="12dp"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnStop"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Arrêter"/>
+
+    </LinearLayout>
+</ScrollView>
