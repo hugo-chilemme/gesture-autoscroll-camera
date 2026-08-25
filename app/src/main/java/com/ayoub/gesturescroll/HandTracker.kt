@@ -29,9 +29,9 @@ class HandTracker(
 ) {
     companion object {
         private val PALM_POINTS = intArrayOf(0, 5, 9, 13, 17) // wrist + finger MCPs
-        private const val SWIPE_THRESHOLD = 0.14f   // fraction of frame height
+        private const val SWIPE_THRESHOLD = 0.13f   // fraction of frame height
         private const val WINDOW_MS = 400L          // max span of one continuous swipe
-        private const val COOLDOWN_MS = 350L         // delay before the next swipe can fire
+        private const val COOLDOWN_MS = 220L         // delay before the next swipe can fire
         private const val MODEL = "hand_landmarker.task"
     }
 
@@ -51,9 +51,11 @@ class HandTracker(
             .setBaseOptions(base)
             .setRunningMode(RunningMode.LIVE_STREAM)
             .setNumHands(1)
-            .setMinHandDetectionConfidence(0.5f)
-            .setMinTrackingConfidence(0.5f)
-            .setMinHandPresenceConfidence(0.5f)
+            // Lowered from 0.5 so a hand far from the camera (small in frame,
+            // lower confidence) still gets picked up.
+            .setMinHandDetectionConfidence(0.35f)
+            .setMinTrackingConfidence(0.35f)
+            .setMinHandPresenceConfidence(0.35f)
             .setResultListener { result, _ -> handleResult(result) }
             .setErrorListener { busy = false }
             .build()
