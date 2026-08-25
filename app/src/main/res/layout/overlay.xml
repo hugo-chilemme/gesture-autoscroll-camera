@@ -14,13 +14,28 @@
         android:src="@drawable/ic_active"
         android:contentDescription="toggle" />
 
-    <TextView
-        android:id="@+id/status"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="6dp"
-        android:text="actif"
-        android:textColor="#FFFFFF"
-        android:textSize="13sp" />
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="actif"
+            android:textColor="#FFFFFF"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/debugText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#99FFFFFF"
+            android:textSize="10sp"
+            android:fontFamily="monospace" />
+    </LinearLayout>
 </LinearLayout>

@@ -42,6 +42,7 @@ class OverlayService : Service(), LifecycleOwner {
     private lateinit var windowManager: WindowManager
     private lateinit var overlayView: View
     private lateinit var statusText: TextView
+    private lateinit var debugText: TextView
 
     private var cameraProvider: ProcessCameraProvider? = null
     private val analysisExecutor = Executors.newSingleThreadExecutor()
@@ -62,7 +63,11 @@ class OverlayService : Service(), LifecycleOwner {
         startForeground(NOTIF_ID, buildNotification())
         windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
         addOverlay()
-        handTracker = HandTracker(this) { direction -> onSwipe(direction) }
+        handTracker = HandTracker(
+            this,
+            onSwipe = { direction -> onSwipe(direction) },
+            onDebug = { text -> updateDebug(text) }
+        )
         startCamera()
         lifecycleRegistry.currentState = Lifecycle.State.STARTED
     }
@@ -81,6 +86,7 @@ class OverlayService : Service(), LifecycleOwner {
     private fun addOverlay() {
         overlayView = LayoutInflater.from(this).inflate(R.layout.overlay, null)
         statusText = overlayView.findViewById(R.id.status)
+        debugText = overlayView.findViewById(R.id.debugText)
         val toggle = overlayView.findViewById<ImageView>(R.id.toggle)
 
         toggle.setOnClickListener {
@@ -180,6 +186,10 @@ class OverlayService : Service(), LifecycleOwner {
 
     private fun updateStatus(text: String) {
         overlayView.post { statusText.text = text }
+    }
+
+    private fun updateDebug(text: String) {
+        overlayView.post { debugText.text = text }
     }
 
     private fun buildNotification(): Notification {

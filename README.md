@@ -43,6 +43,14 @@ Récupère l'APK dans l'onglet **Actions → run → Artifacts**.
 
 Dans `HandTracker.kt` :
 - `SWIPE_THRESHOLD` : sensibilité (plus bas = plus sensible).
+- `WINDOW_MS` : durée max d'un geste continu (plus haut = tolère des gestes plus lents).
 - `COOLDOWN_MS` : délai anti-répétition entre deux scrolls.
 
 Dans `GestureScrollService.kt` : `startY`/`endY` contrôlent l'amplitude du scroll.
+
+## Debug
+
+L'overlay affiche une petite ligne de debug sous le statut : détection de la main,
+position verticale de la paume (`y`), déplacement dans la fenêtre courante (`Δ`) et
+temps restant avant le prochain geste possible (`cd`). Utile pour recalibrer
+`SWIPE_THRESHOLD` si les gestes ne se déclenchent pas assez, ou trop souvent.
