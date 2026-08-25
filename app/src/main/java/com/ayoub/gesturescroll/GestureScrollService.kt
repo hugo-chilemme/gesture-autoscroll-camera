@@ -67,7 +67,7 @@ class GestureScrollService : AccessibilityService() {
             lineTo(x, endY)
         }
 
-        val stroke = GestureDescription.StrokeDescription(path, 0L, 250L)
+        val stroke = GestureDescription.StrokeDescription(path, 0L, 120L)
         val gesture = GestureDescription.Builder()
             .addStroke(stroke)
             .build()

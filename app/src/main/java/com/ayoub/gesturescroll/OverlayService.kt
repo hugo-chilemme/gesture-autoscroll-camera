@@ -11,6 +11,7 @@ import android.graphics.Matrix
 import android.graphics.PixelFormat
 import android.os.Build
 import android.os.IBinder
+import android.util.Size
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.MotionEvent
@@ -147,6 +148,9 @@ class OverlayService : Service(), LifecycleOwner {
 
             val analysis = ImageAnalysis.Builder()
                 .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
+                // Higher-res analysis frame so a hand far from the camera
+                // still covers enough pixels for MediaPipe to detect it.
+                .setTargetResolution(Size(960, 1280))
                 .build()
 
             analysis.setAnalyzer(analysisExecutor) { proxy -> analyze(proxy) }
